@@ -1,0 +1,37 @@
+.thought1{
+    font-family: 'Poppins', sans-serif;
+}
+
+.thought2{
+    font-family: 'Roboto Slab', serif;
+}
+
+.thought3{
+    font-family: 'Kavivanar', cursive;
+}
+
+a {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff0000;
+    transition: font-size .3s;
+}
+
+.linkHover:hover{
+    color: #000000;
+    font-size: 30px;
+}
+
+.linkActive:active{
+    color: #000000;
+}
+.linkLink:link{
+    color: green;
+}
+.buttonFocus:focus{
+    background: blue;
+}
+
+h4:nth-child(3n){
+    color: yellow;
+}
