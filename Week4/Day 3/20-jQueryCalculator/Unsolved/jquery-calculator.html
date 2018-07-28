@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Calculator</title>
+
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+</head>
+<body>
+
+<!-- Jumbotron for Title -->
+<div class="jumbotron">
+    <h1 class="text-center">jQuery Calculator</h1>
+    <h3 class="text-center">Perform basic mathematic operations using the power of jQuery!</h3>
+</div>
+
+<div class="container">
+
+    <div class="row">
+
+      <!-- Calculator Panel -->
+      <div class="col-lg-4">
+        <div class="card">
+          <h3 class="card-header">Calculator</h3>
+
+          <div class="card-body">
+            <button id="button-1" class="btn btn-primary number" value="1"><h1>1</h1></button>
+            <button id="button-2" class="btn btn-primary number" value="2"><h1>2</h1></button>
+            <button id="button-3" class="btn btn-primary number" value="3"><h1>3</h1></button>
+            <button id="button-plus" class="btn btn-danger operator" value="plus"><h1>+</h1></button>
+            <br><br>
+            <button id="button-4" class="btn btn-primary number" value="4"><h1>4</h1></button>
+            <button id="button-5" class="btn btn-primary number" value="5"><h1>5</h1></button>
+            <button id="button-6" class="btn btn-primary number" value="6"><h1>6</h1></button>
+            <button id="button-minus" class="btn btn-danger operator" value="minus"><h1>&minus;</h1></button>
+            <br><br>
+            <button id="button-7" class="btn btn-primary number" value="7"><h1>7</h1></button>
+            <button id="button-8" class="btn btn-primary number" value="8"><h1>8</h1></button>
+            <button id="button-9" class="btn btn-primary number" value="9"><h1>9</h1></button>
+            <button id="button-multiply" class="btn btn-danger operator" value="times"><h1>&times;</h1></button>
+            <br><br>
+            <button id="button-0" class="btn btn-primary number" value="0"><h1>0</h1></button>
+            <button id="button-divide" class="btn btn-danger operator" value="divide"><h1>&divide;</h1></button>
+            <button id="button-power" class="btn btn-danger operator" value="power"><h1>^</h1></button>
+            <button id="button-equal" class="btn btn-success equal" value="equals"><h1>=</h1></button>
+            <br><br>
+            <button id="button-clear" class="btn btn-dark clear" value="clear"><h1>clear</h1></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result Panel -->
+      <div class="col-lg-6">
+        <div class="card">
+          <h3 class="card-header">Result</h3>
+          <div class="card-body">
+            <h1 id="first-number"></h1>
+            <h1 id="operator"></h1>
+            <h1 id="second-number"></h1>
+            <hr>
+            <h1 id="result"></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+//Calculation object
+//Properties: First number array, empty operation, second number array, operation methods, clear, first number entered boolean
+var calculator = {
+  firstNumber: 0,
+  operator: "",
+  secondNumber: 0,
+  firstNumberEntered: false,
+  result,
+
+  addition: function(){
+    this.result = parseInt(this.firstNumber) + parseInt(this.secondNumber);
+    console.log(this.result);
+  },
+
+  subtraction: function(){
+    this.result = parseInt(this.firstNumber) - parseInt(this.secondNumber);
+  },
+
+  multiplication: function(){
+    this.result = parseInt(this.firstNumber) * parseInt(this.secondNumber);
+  },
+
+  division: function(){
+    this.result = parseInt(this.firstNumber) / parseInt(this.secondNumber);
+  },
+
+  powerof: function(){
+    this.result = Math.pow(parseInt(this.firstNumber), parseInt(this.secondNumber));
+  },
+
+  equals: function(){
+    if(this.operator === "addition"){
+      this.addition();
+    }
+    else if (this.operator === "subtraction"){
+      this.subtraction();
+    }
+    else if (this.operator === "multiplication"){
+      this.multiplication();
+    }
+    else if (this.operator === "division"){
+      this.division();
+    }
+    else if (this.operator === "powerof"){
+      this.powerof();
+    }
+  },
+
+  clear: function(){
+    this.firstNumber = "";
+    this.operator = "";
+    this.secondNumber = "";
+    this.firstNumberEntered = false;
+    this.result = 0;
+  },
+
+  registerFirstNumber: function(){
+    this.firstNumberEntered = true;
+  },
+
+};
+
+// Your code here...
+
+
+//onclick: determine what button was pressed, if number push to appropriate array, if operation do appropriate operation, if equals call the math function
+$("#button-0").on("click", function(){
+  if(calculator.firstNumberEntered === false){
+    calculator.firstNumber = 0;
+    $("#first-number").text(calculator.firstNumber);
+    
+  }
+  else{
+    calculator.secondNumber = 0;
+    $("#second-number").text(calculator.secondNumber);
+  }
+});
+
+$("#button-1").on("click", function(){
+  if(calculator.firstNumberEntered === false){
+    calculator.firstNumber = 1;
+    $("#first-number").text(calculator.firstNumber);
+  }
+  else{
+    calculator.secondNumber = 1;
+    $("#second-number").text(calculator.secondNumber);
+  }
+});
+
+$("#button-2").on("click", function(){
+  if(calculator.firstNumberEntered === false){
+    calculator.firstNumber = 2;
+    $("#first-number").text(calculator.firstNumber);
+  }
+  else{
+    calculator.secondNumber = 2;
+    $("#second-number").text(calculator.secondNumber);
+  }
+});
+
+$("#button-3").on("click", function(){
+  if(calculator.firstNumberEntered === false){
+    calculator.firstNumber = 3;
+    $("#first-number").text(calculator.firstNumber);
+  }
+  else{
+    calculator.secondNumber = 3;
+    $("#second-number").text(calculator.secondNumber);
+  }
+});
+
+$("#button-4").on("click", function(){
+  if(calculator.firstNumberEntered === false){
+    calculator.firstNumber = 4;
+    $("#first-number").text(calculator.firstNumber);
+  }
+  else{
+    calculator.secondNumber = 4;
+    $("#second-number").text(calculator.secondNumber);
+  }
+});
+
+$("#button-5").on("click", function(){
+  if(calculator.firstNumberEntered === false){
+    calculator.firstNumber = 5;
+    $("#first-number").text(calculator.firstNumber);
+  }
+  else{
+    calculator.secondNumber = 5;
+    $("#second-number").text(calculator.secondNumber);
+  }
+});
+
+$("#button-6").on("click", function(){
+  if(calculator.firstNumberEntered === false){
+    calculator.firstNumber = 6;
+    $("#first-number").text(calculator.firstNumber);
+  }
+  else{
+    calculator.secondNumber = 6;
+    $("#second-number").text(calculator.secondNumber);
+  }
+});
+
+$("#button-7").on("click", function(){
+  if(calculator.firstNumberEntered === false){
+    calculator.firstNumber = 7;
+    $("#first-number").text(calculator.firstNumber);
+  }
+  else{
+    calculator.secondNumber = 7;
+    $("#second-number").text(calculator.secondNumber);
+  }
+});
+
+$("#button-8").on("click", function(){
+  if(calculator.firstNumberEntered === false){
+    calculator.firstNumber = 8;
+    $("#first-number").text(calculator.firstNumber);
+  }
+  else{
+    calculator.secondNumber = 8;
+    $("#second-number").text(calculator.secondNumber);
+  }
+});
+
+$("#button-9").on("click", function(){
+  if(calculator.firstNumberEntered === false){
+    calculator.firstNumber = 9;
+    $("#first-number").text(calculator.firstNumber);
+  }
+  else{
+    calculator.secondNumber = 9;
+    $("#second-number").text(calculator.secondNumber);
+  }
+});
+
+$("#button-plus").on("click", function(){
+  calculator.operator = "addition";
+  $("#operator").text("+");
+  calculator.registerFirstNumber();
+});
+
+$("#button-minus").on("click", function(){
+  calculator.operator = "subtraction";
+  $("#operator").text("-");
+  calculator.registerFirstNumber();
+});
+
+$("#button-multiply").on("click", function(){
+  calculator.operator = "multiplication";
+  $("#operator").text("*");
+  calculator.registerFirstNumber();
+});
+
+$("#button-divide").on("click", function(){
+  calculator.operator = "division";
+  $("#operator").text("/");
+  calculator.registerFirstNumber();
+});
+
+$("#button-power").on("click", function(){
+  calculator.operator = "powerof";
+  $("#operator").text("^");
+  calculator.registerFirstNumber();
+});
+
+$("#button-equal").on("click", function(){
+  calculator.equals();
+  $("#result").text(calculator.result);
+});
+
+$("#button-clear").on("click", function(){
+  calculator.clear();
+  $("#first-number").text("");
+  $("#operator").text("");
+  $("#second-number").text("");
+  $("#result").text("");
+});
+
+
+
+});
+
+</script>
+
+</body>
+</html>

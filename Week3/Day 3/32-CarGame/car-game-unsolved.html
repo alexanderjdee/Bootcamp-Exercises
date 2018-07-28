@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Car Game</title>
+  </head>
+  <body>
+    <h1>Car Adventures!</h1>
+    <h2>Press h to honk, d to drive to work, w to drive around the world, and t to get a tuneup</h2>
+    <h2>See console for car stats</h2>
+
+    <script>
+      var inputs = ["h", "d", "w", "t"];
+
+      var car = {
+        make: "Honda",
+        model: "Fit",
+        color: "Blue Raspberry",
+        mileage: 3000,
+        isWorking: true,
+
+        driveToWork: function() {
+
+          alert("Old Mileage (Before Work): " + this.mileage);
+
+          this.mileage = this.mileage + 8;
+
+          alert("New Mileage (After Work): " + this.mileage);
+        },
+
+        driveAroundWorld: function() {
+
+          alert("Old Mileage (Before the World): " + this.mileage);
+
+          this.mileage = this.mileage + 24000;
+
+          alert("New Mileage (After the World): " + this.mileage);
+          alert("Car needs a tuneup!");
+
+          this.isWorking = false;
+        },
+
+        getTuneUp: function() {
+          alert("Car is ready to go!");
+          
+          this.isWorking = true;
+        },
+
+        honk: function() {
+          alert("Honk! Honk!");
+        }
+      };
+
+      function reWriteStats(){
+        console.log("Make: "+ car.make);
+        console.log("Model: " + car.model);
+        console.log("Color: " + car.color);
+        console.log("Mileage: " + car.mileage);
+        console.log("Is Working: " + car.isWorking);
+        console.log("-------------------------");
+      }
+
+      document.onkeyup = function (event){
+        var userInput = event.key.toLowerCase();
+
+        if (userInput === "h"){
+          car.honk();
+          reWriteStats();
+        }
+        else if(userInput === "d"){
+          car.driveToWork();
+          reWriteStats();
+        }
+        else if(userInput === "w"){
+          car.driveAroundWorld();
+          reWriteStats();
+        }
+        else if(userInput === "t"){
+          car.getTuneUp();
+          reWriteStats();
+        }
+        else{
+          alert("Input not recognized. Please enter a different input.")
+        }
+      }
+      
+
+    </script>
+    
+  </body>
+</html>

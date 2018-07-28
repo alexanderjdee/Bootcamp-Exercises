@@ -1,0 +1,19 @@
+{
+  "name": "weatherdest",
+  "version": "1.0.0",
+  "description": "This application returns the geocode and weather information of the inputted location.",
+  "main": "weatherdest.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Weather",
+    "Geocode"
+  ],
+  "author": "Alex Dee",
+  "license": "ISC",
+  "dependencies": {
+    "geocoder": "^0.2.3",
+    "weather-js": "^2.0.0"
+  }
+}

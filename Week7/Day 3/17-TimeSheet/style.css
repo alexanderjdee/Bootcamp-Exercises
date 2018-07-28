@@ -1,0 +1,33 @@
+.jumbotron {
+
+    background-color: black;
+
+
+}
+
+h1, h3 {
+
+    text-align: center;
+    color: white;
+
+}
+
+table {
+
+    width: 100%;
+
+}
+
+th {
+
+    border: solid black 1px;
+    padding-left: 5px;
+
+}
+
+td {
+
+    border: solid lightgray 1px;
+    padding-left: 5px;
+
+}

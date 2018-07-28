@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8">
+        <title>Time Sheet</title>
+        <!-- <link rel="stylesheet" href="assets/css/reset.css"> -->
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+        
+        <script src="http://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+        
+        <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+
+        <script data-require="moment.js@*" data-semver="2.10.2" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col jumbotron">
+                    <h1>Employee Data Management</h1>
+                    <h3>A Comprehensive Directory of Employee Billable Hours</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <form>
+                        <h2>Add Employee</h2>
+
+                        <label for="name">Employee Name</label>
+                        <input type="text" class="form-control" id="employee-name">
+
+                        <label for="role">Role</label>
+                        <input type="text" class="form-control" id="employee-role">
+
+                        <label for="start-date">Start Date (MM/DD/YYYY)</label>
+                        <input type="text" class="form-control" id="employee-startdate">
+
+                        <label for="monthly-rate">Monthly Rate</label>
+                        <input type="text" class="form-control" id="employee-monthly-rate">
+                        <br>
+                        <input type="submit" id="submit">
+
+                    </form>
+
+                    <table id="employee-table">
+                        <tr><h4>Current Employees</h4></tr>
+                        <tr>
+                            <th>Name</th>
+                            <th>Role</th>
+                            <th>Start Date</th>
+                            <th>Months Worked</th>
+                            <th>Monthly Rate ($)</th>
+                            <th>Total Billed ($)</th>
+                        </tr>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+    
+
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
+

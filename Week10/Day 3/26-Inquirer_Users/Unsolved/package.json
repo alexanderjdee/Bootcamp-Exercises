@@ -1,0 +1,17 @@
+{
+  "name": "userprompt",
+  "version": "1.0.0",
+  "description": "A basic command line Node application using the inquirer package that asks the user five questions.",
+  "main": "userprompt.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "prompt"
+  ],
+  "author": "Alex Dee",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^6.0.0"
+  }
+}
