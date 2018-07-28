@@ -39,6 +39,25 @@ var TV = function() {
     // The API will return an array containing multiple actors, just grab the first result
     // Append the actor's name, birthday, gender, country, and URL to the `log.txt` file
     // Print this information to the console
+
+    request(URL, function(err, response, body) {
+      // parse the response body (string) to a JSON object
+      var jsonData = JSON.parse(body)[0].person;
+
+      var actorData = [
+        "Name: " + jsonData.name,
+        "Birthday: " + jsonData.birthday,
+        "Gender: " + jsonData.gender,
+        "Country: " + jsonData.country.name,
+        "URL: " + jsonData.url
+      ].join("\n\n");
+
+      // Append showData and the divider to log.txt, print showData to the console
+      fs.appendFile("log.txt", actorData + divider, function(err) {
+        if (err) throw err;
+        console.log(actorData);
+      });
+    });
   };
 };
 

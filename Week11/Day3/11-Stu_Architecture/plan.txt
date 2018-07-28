@@ -1,0 +1,12 @@
+- Capture user input using process.argv - cli.js
+- Format user input
+- Determine which api to call based on process.argv (switch) - cli.js
+    - Handle invalid commands
+    - Exit command
+- Do the api call - tv.js
+- Format and return the api call response - tv.js
+- Append response to log.txt - tv.js
+- Console log response - tv.js
+
+2 modules, split work
+
